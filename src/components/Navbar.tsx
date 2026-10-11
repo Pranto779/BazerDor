@@ -1,12 +1,10 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import LoadingLink from "./Link";
 import { getBengaliDate } from "@/lib/utils";
 import { Category } from "@/types";
-import { use } from "react";
 import { IoReturnDownBack } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 
@@ -16,12 +14,19 @@ export default function Navbar({ categories }: { categories: Category[] }) {
   const router = useRouter();
   const { data: session, isPending } = authClient.useSession();
 
-  async function handleSignOut() {
-    await authClient.signOut();
-    toast.success("সাইন আউট সফল হয়েছে");
-    router.push("/");
-    router.refresh();
-  }
+
+
+async function handleSignOut() {
+  await authClient.signOut();
+
+  toast.success("সাইন আউট সফল হয়েছে");
+
+  router.push("/");
+  router.refresh();
+}
+
+
+
 
   return (
     <header className="border-b border-base-300 bg-base-100">
@@ -76,14 +81,14 @@ export default function Navbar({ categories }: { categories: Category[] }) {
               <LoadingLink
                 href="/signin"
                 label="সাইন ইন পেজ লোড হচ্ছে..."
-                className="btn px-2 py-1 btn-sm"
+                className="btn border-0 px-2 py-1 btn-sm"
               >
                 সাইন ইন
               </LoadingLink>
               <LoadingLink
                 href="/signup"
                 label="সাইন আপ পেজ লোড হচ্ছে..."
-                className="btn btn-success btn-sm text-white"
+                className="btn bg-green-500 btn-sm text-white"
               >
                 সাইন আপ
               </LoadingLink>

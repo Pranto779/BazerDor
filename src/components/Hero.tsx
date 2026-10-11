@@ -17,7 +17,7 @@ export default function Hero() {
             চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক
             বিশ্লেষণ, গড় এবং দামের পরিবর্তন এক জায়গায়।
           </p>
-          <a href="#সব-পণ্য" className="btn btn-success rounded-2xl mt-4 text-white">
+          <a href="#সব-পণ্য" className="btn bg-green-500 rounded-2xl mt-4 text-white">
             সব পণ্য দেখুন
           </a>
         </div>

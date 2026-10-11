@@ -8,8 +8,8 @@ The goal of BazarDor is to make market price information easily accessible, help
 
 ## 🌐 Live Demo
 
-* **Live Site:** [bazer-dor.vercel.app](#)
-* **GitHub Repository:** [https://github.com/Pranto779/Bazer_Dor](#)
+* **Live Site:** [bazer-dor77.vercel.app](#)
+* **GitHub Repository:** [https://github.com/Pranto779/BazerDor](#)
 
 ---
 
@@ -267,14 +267,7 @@ The main goals of BazarDor are to:
 
 ---
 
-## 👨‍💻 Author
 
-**Your Name**
-
-* **GitHub:** [Your GitHub Profile](#)
-* **LinkedIn:** [Your LinkedIn Profile](#)
-
----
 
 ## 📜 License
 

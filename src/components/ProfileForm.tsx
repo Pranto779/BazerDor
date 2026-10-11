@@ -31,24 +31,24 @@ export default function ProfileForm({ currentName }: { currentName: string }) {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 py-10">
-      <div className="rounded-2xl border border-green-100 bg-white p-6 shadow-sm">
-        <h1 className="text-2xl font-bold">তথ্য আপডেট</h1>
+    <div className="mx-auto w-full px-4 py-2">
+      
+        <h1 className="text-xl font-semibold">নাম </h1>
         <form onSubmit={handleSubmit} className="mt-5 space-y-3">
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="নাম"
-            className="input input-bordered w-full"
+            className="input rounded-xl input-bordered w-full"
           />
           <button
             disabled={loading}
-            className="btn btn-success w-full text-white"
+            className="btn btn-success w-full rounded-xl bg-green-600 text-white"
           >
             {loading ? "অপেক্ষা করুন..." : "তথ্য আপডেট করুন"}
           </button>
         </form>
       </div>
-    </div>
+
   );
 }

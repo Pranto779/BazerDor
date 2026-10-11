@@ -1,5 +1,5 @@
 import { formatPrice, formatUnit, getChangeBadge } from "@/lib/utils";
-import LoadingLink from "./LoadingLink";
+import LoadingLink from "./Link";
 import { Product } from "@/types";
 
 export default function ProductCard({ product }: { product: Product }) {

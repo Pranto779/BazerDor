@@ -3,9 +3,12 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import LoadingLink from "./LoadingLink";
+import LoadingLink from "./Link";
 import { getBengaliDate } from "@/lib/utils";
 import { Category } from "@/types";
+import { use } from "react";
+import { IoReturnDownBack } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
 
 
 export default function Navbar({ categories }: { categories: Category[] }) {
@@ -22,7 +25,7 @@ export default function Navbar({ categories }: { categories: Category[] }) {
 
   return (
     <header className="border-b border-base-300 bg-base-100">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex container items-center justify-between px-4 py-3">
         <LoadingLink
           href="/"
           label="হোম লোড হচ্ছে..."
@@ -39,11 +42,11 @@ export default function Navbar({ categories }: { categories: Category[] }) {
           </span>
         </LoadingLink>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center  gap-2">
           {isPending ? (
             <div className="skeleton h-8 w-28"></div>
           ) : session ? (
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end ">
               <button tabIndex={0} className="btn btn-ghost btn-sm gap-2">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-600 text-xs text-white">
                   {session.user.name.charAt(0).toUpperCase()}
@@ -52,15 +55,19 @@ export default function Navbar({ categories }: { categories: Category[] }) {
               </button>
               <ul
                 tabIndex={0}
-                className="menu dropdown-content z-10 mt-2 w-44 rounded-box border border-base-300 bg-base-100 p-2 shadow"
+                className="menu dropdown-content z-10 mt-2 w-50 rounded-box border border-base-300 bg-base-100 p-2 shadow"
               >
+                <div className="px-3 mb-2">
+                    <p className="font-bold">{session.user.name}</p>
+                    <p className="text-sm">{session.user.email}</p>
+                </div>
                 <li>
                   <LoadingLink href="/profile" label="প্রোফাইল লোড হচ্ছে...">
-                    আমার প্রোফাইল
+                   <CgProfile /> আমার প্রোফাইল
                   </LoadingLink>
                 </li>
                 <li>
-                  <button onClick={handleSignOut}>সাইন আউট</button>
+                  <button className="text-red-400" onClick={handleSignOut}><IoReturnDownBack />সাইন আউট</button>
                 </li>
               </ul>
             </div>
@@ -69,7 +76,7 @@ export default function Navbar({ categories }: { categories: Category[] }) {
               <LoadingLink
                 href="/signin"
                 label="সাইন ইন পেজ লোড হচ্ছে..."
-                className="btn btn-outline btn-sm"
+                className="btn px-2 py-1 btn-sm"
               >
                 সাইন ইন
               </LoadingLink>
@@ -85,8 +92,8 @@ export default function Navbar({ categories }: { categories: Category[] }) {
         </div>
       </div>
 
-      <nav className="border-t border-base-200">
-        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 py-2">
+      <nav className="border border-slate-200">
+        <div className="mx-auto flex container  gap-1 overflow-x-auto px-4 py-2">
           {categories.map((c) => {
             const active = pathname === `/category/${c.slug}`;
             return (

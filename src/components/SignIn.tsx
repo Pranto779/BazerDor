@@ -1,92 +1,143 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
-
-import SocialLoginButtons from "./SocialLoginButtons";
+import SocialLoginButtons from "./Buttons";
 import { authClient } from "@/lib/auth-client";
-
 export default function SignInForm() {
   const router = useRouter();
   const params = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
   const reason = params.get("reason");
   const redirectTo = params.get("redirect") || "/";
-
   useEffect(() => {
     if (reason === "login") {
       toast.error("এই পেজ দেখতে আগে সাইন ইন করুন", {
         id: "login-required",
+        duration: 3500,
+        style: {
+          borderRadius: "14px",
+          background: "#fff",
+          color: "#374151",
+          border: "1px solid #FEE2E2",
+          padding: "14px 16px",
+          fontSize: "13px",
+          fontWeight: 500,
+          boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+        },
       });
     }
   }, [reason]);
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
     const form = new FormData(e.currentTarget);
     const email = String(form.get("email") ?? "").trim();
     const password = String(form.get("password") ?? "");
-
     if (!email || !password) {
-      toast.error("ইমেইল ও পাসওয়ার্ড দিন");
+      toast.error("ইমেইল ও পাসওয়ার্ড দিন", {
+        duration: 3000,
+        style: {
+          borderRadius: "14px",
+          background: "#fff",
+          color: "#374151",
+          border: "1px solid #FEE2E2",
+          padding: "14px 16px",
+          fontSize: "13px",
+          fontWeight: 500,
+          boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+        },
+      });
       return;
     }
-
     setLoading(true);
-
     try {
       const { error } = await authClient.signIn.email({ email, password });
-
       if (error) {
         setLoading(false);
-        toast.error(error.message || "ইমেইল বা পাসওয়ার্ড ভুল");
+        toast.error(error.message || "ইমেইল বা পাসওয়ার্ড ভুল", {
+          duration: 3500,
+          style: {
+            borderRadius: "14px",
+            background: "#fff",
+            color: "#374151",
+            border: "1px solid #FEE2E2",
+            padding: "14px 16px",
+            fontSize: "13px",
+            fontWeight: 500,
+            boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+          },
+        });
         return;
       }
-
       toast.success("সাইন ইন সফল হয়েছে!", {
         id: "signin-success",
-        duration: 3000,
+        duration: 2000,
+        style: {
+          borderRadius: "14px",
+          background: "#fff",
+          color: "#065F46",
+          border: "1px solid #A7F3D0",
+          padding: "14px 16px",
+          fontSize: "13px",
+          fontWeight: 600,
+          boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+        },
+        iconTheme: { primary: "#059669", secondary: "#fff" },
       });
-
       setTimeout(() => {
         router.push(redirectTo);
         router.refresh();
       }, 1000);
     } catch {
       setLoading(false);
-      toast.error("সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+      toast.error("সমস্যা হয়েছে। আবার চেষ্টা করুন।", {
+        duration: 3500,
+        style: {
+          borderRadius: "14px",
+          background: "#fff",
+          color: "#374151",
+          border: "1px solid #FEE2E2",
+          padding: "14px 16px",
+          fontSize: "13px",
+          fontWeight: 500,
+          boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+        },
+      });
     }
   }
-
   const inputClass =
     "mt-1.5 w-full rounded-lg border border-gray-200 bg-gray-50 px-3.5 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-100";
-
   return (
     <section className="flex min-h-[80vh] items-center justify-center bg-[#F8F9FA] px-4 py-12">
+      {" "}
       <div className="w-full max-w-md">
-        {/* Header */}
+        {" "}
+        {/* Header */}{" "}
         <div className="mb-6 text-center">
+          {" "}
           <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-            আবার ফিরে আসায় স্বাগতম!
-          </h1>
+            {" "}
+            আবার ফিরে আসায় স্বাগতম!{" "}
+          </h1>{" "}
           <p className="mt-2 text-xs text-gray-500">
+            {" "}
             আপনার অ্যাকাউন্টে সাইন ইন করুন এবং নিত্যপ্রয়োজনীয় পণ্যের দাম এক
-            নজরে দেখুন।
-          </p>
-        </div>
-
-        {/* Card Form */}
+            নজরে দেখুন।{" "}
+          </p>{" "}
+        </div>{" "}
+        {/* Card Form */}{" "}
         <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm sm:p-8">
+          {" "}
           <form onSubmit={handleSubmit} className="space-y-4">
+            {" "}
             <div>
+              {" "}
               <label className="block text-xs font-semibold text-gray-700">
-                ইমেইল ঠিকানা
-              </label>
+                {" "}
+                ইমেইল ঠিকানা{" "}
+              </label>{" "}
               <input
                 name="email"
                 type="email"
@@ -94,14 +145,16 @@ export default function SignInForm() {
                 placeholder="Your Email"
                 className={inputClass}
                 disabled={loading}
-              />
-            </div>
-
+              />{" "}
+            </div>{" "}
             <div>
+              {" "}
               <label className="block text-xs font-semibold text-gray-700">
-                পাসওয়ার্ড
-              </label>
+                {" "}
+                পাসওয়ার্ড{" "}
+              </label>{" "}
               <div className="relative">
+                {" "}
                 <input
                   name="password"
                   type={showPassword ? "text" : "password"}
@@ -109,62 +162,64 @@ export default function SignInForm() {
                   placeholder="আপনার পাসওয়ার্ড লিখুন"
                   className={`${inputClass} pr-16`}
                   disabled={loading}
-                />
+                />{" "}
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500 hover:text-gray-700"
                 >
-                  {showPassword ? "লুকান" : "দেখুন"}
-                </button>
-              </div>
-            </div>
-
+                  {" "}
+                  {showPassword ? "লুকান" : "দেখুন"}{" "}
+                </button>{" "}
+              </div>{" "}
+            </div>{" "}
             <button
               type="submit"
               disabled={loading}
               className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-[#00966D] py-3 text-sm font-semibold text-white transition hover:bg-[#00805d] focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             >
+              {" "}
               {loading ? (
                 <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                  সাইন ইন হচ্ছে...
+                  {" "}
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />{" "}
+                  সাইন ইন হচ্ছে...{" "}
                 </>
               ) : (
                 "সাইন ইন করুন"
-              )}
-            </button>
-          </form>
-
-          {/* Divider */}
+              )}{" "}
+            </button>{" "}
+          </form>{" "}
+          {/* Divider */}{" "}
           <div className="my-5 flex items-center gap-3">
-            <div className="h-px flex-1 bg-gray-200" />
-            <span className="text-xs text-gray-400">অথবা সাইন ইন করুন</span>
-            <div className="h-px flex-1 bg-gray-200" />
-          </div>
-
-          {/* Social Logins */}
-          <SocialLoginButtons />
-
-          {/* Redirect to SignUp */}
+            {" "}
+            <div className="h-px flex-1 bg-gray-200" />{" "}
+            <span className="text-xs text-gray-400"> অথবা সাইন ইন করুন </span>{" "}
+            <div className="h-px flex-1 bg-gray-200" />{" "}
+          </div>{" "}
+          {/* Social Logins */} <SocialLoginButtons />{" "}
+          {/* Redirect to SignUp */}{" "}
           <p className="mt-6 text-center text-xs text-gray-500">
+            {" "}
             অ্যাকাউন্ট নেই?{" "}
             <Link
               href="/signup"
               className="font-medium text-[#00966D] hover:underline"
             >
-              নতুন অ্যাকাউন্ট তৈরি করুন
-            </Link>
-          </p>
-        </div>
-
-        {/* Back to Home */}
+              {" "}
+              নতুন অ্যাকাউন্ট তৈরি করুন{" "}
+            </Link>{" "}
+          </p>{" "}
+        </div>{" "}
+        {/* Back to Home */}{" "}
         <p className="mt-6 text-center text-xs text-gray-500">
+          {" "}
           <Link href="/" className="transition hover:text-gray-800">
-            ← হোম পেজে ফিরে যান
-          </Link>
-        </p>
-      </div>
+            {" "}
+            ← হোম পেজে ফিরে যান{" "}
+          </Link>{" "}
+        </p>{" "}
+      </div>{" "}
     </section>
   );
 }

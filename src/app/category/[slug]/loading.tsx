@@ -1,4 +1,4 @@
-import LoadingBanner from "../../../components/LoadingBanner";
+import LoadingBanner from "../../../components/Banner";
 
 export default function Loading() {
   return (

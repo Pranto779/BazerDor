@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ComponentProps } from "react";
-import { LOADING_KEY } from "./LoadingBanner";
+import { LOADING_KEY } from "./Banner";
 
 type Props = ComponentProps<typeof Link> & { label: string };
 

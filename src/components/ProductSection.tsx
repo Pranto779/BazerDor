@@ -1,4 +1,5 @@
-import type { Product } from "../types";
+
+import { Product } from "@/types";
 import ProductCard from "./ProductCard";
 
 export default function ProductSection({

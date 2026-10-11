@@ -1,5 +1,6 @@
-import type { Product } from "../types";
-import { formatPrice, formatUnit, getChangeBadge } from "../lib/utils";
+import { formatPrice, formatUnit, getChangeBadge } from "@/lib/utils";
+import { Product } from "@/types";
+
 
 function TickerItem({ product }: { product: Product }) {
   const badge = getChangeBadge(product.change);

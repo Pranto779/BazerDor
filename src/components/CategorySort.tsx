@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Product } from "../types";
+
 import ProductCard from "./ProductCard";
-import { parseBengaliNumber } from "../lib/utils";
+import { parseBengaliNumber } from "@/lib/utils";
+import { Product } from "@/types";
+
 
 type SortKey = "default" | "asc" | "desc";
 

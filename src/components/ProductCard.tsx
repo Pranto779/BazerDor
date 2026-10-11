@@ -1,6 +1,7 @@
-import type { Product } from "../types";
-import { formatPrice, formatUnit, getChangeBadge } from "../lib/utils";
+
+import { formatPrice, formatUnit, getChangeBadge } from "@/lib/utils";
 import LoadingLink from "./LoadingLink";
+import { Product } from "@/types";
 
 export default function ProductCard({ product }: { product: Product }) {
   const badge = getChangeBadge(product.change);

@@ -1,7 +1,8 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
-import { authClient } from "../lib/auth-client";
+
 
 export default function SocialLoginButtons() {
   async function login(provider: "google" | "github") {

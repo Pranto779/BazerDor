@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCategories, getProducts } from "../../../lib/api";
+
 import CategorySort from "../../../components/CategorySort";
+import { getCategories, getProducts } from "@/lib/api";
 
 export default async function CategoryPage({
   params,

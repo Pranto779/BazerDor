@@ -1,4 +1,5 @@
-import type { Product, Category } from "../types";
+import { Category, Product } from "@/types";
+
 
 const BASE_URLS = [
   "https://api.api-store.workers.dev/api/bazardor",
@@ -9,7 +10,9 @@ async function fetchApi<T>(path: string): Promise<T> {
   let lastError: unknown;
   for (const base of BASE_URLS) {
     try {
-      const res = await fetch(`${base}${path}`, { cache: "no-store" });
+      const res = await fetch(`${base}${path}`, { next:{
+        revalidate:0
+      } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return (await res.json()) as T;
     } catch (err) {

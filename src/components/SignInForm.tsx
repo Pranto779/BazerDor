@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
-import { authClient } from "../lib/auth-client";
+
 import SocialLoginButtons from "./SocialLoginButtons";
+import { authClient } from "@/lib/auth-client";
 
 export default function SignInForm() {
   const router = useRouter();

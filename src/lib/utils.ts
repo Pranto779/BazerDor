@@ -1,4 +1,5 @@
-import type { PriceChange } from "../types";
+import { PriceChange, Product } from "@/types";
+
 
 const BN_DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
 
@@ -64,7 +65,7 @@ export function getBengaliDate(date = new Date()): string {
     year: "numeric",
   }).format(date);
 }
-import type { Product } from "../types";
+
 
 // markets থেকে min / max / average হিসাব
 export function getPriceSummary(product: Product) {

@@ -1,12 +1,13 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { getBengaliDate } from "../lib/utils";
-import { authClient } from "../lib/auth-client";
 import LoadingLink from "./LoadingLink";
-import type { Category } from "../types";
+import { getBengaliDate } from "@/lib/utils";
+import { Category } from "@/types";
+
 
 export default function Navbar({ categories }: { categories: Category[] }) {
   const pathname = usePathname();

@@ -1,14 +1,9 @@
+import { getProducts } from "@/lib/api";
+import { formatDecimal, formatPrice, formatUnit, getChangeBadge, getPriceSummary, toBengaliNumber } from "@/lib/utils";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProducts } from "../../../lib/api";
-import {
-  formatDecimal,
-  formatPrice,
-  formatUnit,
-  getChangeBadge,
-  getPriceSummary,
-  toBengaliNumber,
-} from "../../../lib/utils";
+
+
 
 export default async function ProductPage({
   params,

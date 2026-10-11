@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { authClient } from "../lib/auth-client";
+import { authClient } from "@/lib/auth-client";
+
 
 export default function ProfileForm({ currentName }: { currentName: string }) {
   const router = useRouter();

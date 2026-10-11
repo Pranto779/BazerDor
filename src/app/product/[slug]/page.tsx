@@ -33,7 +33,7 @@ export default async function ProductPage({
         : "অপরিবর্তিত";
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-6">
+    <div className="mx-auto container px-4 py-6">
       {/* Breadcrumb */}
       <nav className="text-xs text-base-content/60">
         <Link href="/" className="hover:text-green-700 hover:underline">

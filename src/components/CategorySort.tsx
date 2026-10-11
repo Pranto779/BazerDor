@@ -27,7 +27,7 @@ export default function CategorySort({ products }: { products: Product[] }) {
 
   return (
     <>
-      <div className="mt-4 flex items-center gap-2">
+      <div className="mt-4 container mx-auto  flex items-center gap-2">
         <label htmlFor="sort" className="text-sm font-medium">
           সাজান:
         </label>

@@ -18,7 +18,7 @@ export default async function CategoryPage({
   const products = await getProducts(slug);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto container px-4 py-8">
       <h1 className="text-2xl font-bold">
         {category.icon} {category.nameBn}
       </h1>

@@ -14,12 +14,12 @@ export default function ProductSection({
   products: Product[];
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl scroll-mt-4 px-4 pt-10">
+    <section id={id} className="mx-auto container scroll-mt-4 px-4 pt-10">
       <h2 className="text-xl font-bold">{title}</h2>
       {subtitle && (
         <p className="mt-1 text-sm text-base-content/60">{subtitle}</p>
       )}
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-4 grid grid-cols-1 gap-4   sm:grid-cols-2 lg:grid-cols-3">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}

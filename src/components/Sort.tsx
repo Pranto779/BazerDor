@@ -46,10 +46,11 @@ return (
       <option value="asc">দাম: কম থেকে বেশি</option>
       <option value="desc">দাম: বেশি থেকে কম</option>
     </select>
+   
   </div>
-
+ <p className="text-xl py-2 my-2 "> মোট {products.length.toLocaleString('bn-BD')}টি পণ্য দেখানো হচ্ছে</p>
   {/* Full Width Product Grid */}
-  <div className="mt-4 grid  grid-cols-1 gap-4  sm:grid-cols-2  lg:grid-cols-3 ">
+  <div className="mt-2 grid  grid-cols-1 gap-4  sm:grid-cols-2  lg:grid-cols-3 ">
     {sorted.map((p) => (
       <ProductCard key={p.id} product={p} />
     ))}

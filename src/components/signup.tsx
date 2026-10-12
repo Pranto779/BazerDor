@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import SocialLoginButtons from "./Buttons";
 import { authClient } from "@/lib/auth-client";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { LuEye } from "react-icons/lu";
 export default function SignUpForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -151,7 +153,8 @@ export default function SignUpForm() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500 hover:text-gray-700"
                 >
                   {" "}
-                  {showPassword ? "লুকান" : "দেখুন"}{" "}
+                  {showPassword ? <FaRegEyeSlash className="text-2xl" /> : <LuEye className="text-2xl" />
+}{" "}
                 </button>{" "}
               </div>{" "}
             </div>{" "}
@@ -177,14 +180,14 @@ export default function SignUpForm() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500 hover:text-gray-700"
                 >
                   {" "}
-                  {showConfirmPassword ? "লুকান" : "দেখুন"}{" "}
+                  {showConfirmPassword ? <FaRegEyeSlash className="text-2xl" /> : <LuEye className="text-2xl" />}{" "}
                 </button>{" "}
               </div>{" "}
             </div>{" "}
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-[#00966D] py-3 text-sm font-semibold text-white transition hover:bg-[#00805d] focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 py-3 text-sm font-semibold text-white transition hover:bg-[#00805d] focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             >
               {" "}
               {loading ? (

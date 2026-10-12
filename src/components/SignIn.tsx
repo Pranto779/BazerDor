@@ -5,6 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 import SocialLoginButtons from "./Buttons";
 import { authClient } from "@/lib/auth-client";
+import { LuEye } from "react-icons/lu";
+import { FaRegEyeSlash } from "react-icons/fa";
 export default function SignInForm() {
   const router = useRouter();
   const params = useSearchParams();
@@ -119,12 +121,10 @@ export default function SignInForm() {
           {" "}
           <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
             {" "}
-            আবার ফিরে আসায় স্বাগতম!{" "}
-          </h1>{" "}
+সাইন ইন          </h1>{" "}
           <p className="mt-2 text-xs text-gray-500">
             {" "}
-            আপনার অ্যাকাউন্টে সাইন ইন করুন এবং নিত্যপ্রয়োজনীয় পণ্যের দাম এক
-            নজরে দেখুন।{" "}
+            বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
           </p>{" "}
         </div>{" "}
         {/* Card Form */}{" "}
@@ -166,17 +166,18 @@ export default function SignInForm() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500 hover:text-gray-700"
+                  className="absolute right-3  top-1/2 -translate-y-1/2 text-xs text-gray-500 hover:text-gray-700"
                 >
                   {" "}
-                  {showPassword ? "লুকান" : "দেখুন"}{" "}
+                  {showPassword ? <FaRegEyeSlash className="text-2xl" /> : <LuEye  className="text-2xl"/>
+}{" "}
                 </button>{" "}
               </div>{" "}
             </div>{" "}
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-[#00966D] py-3 text-sm font-semibold text-white transition hover:bg-[#00805d] focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 py-3 text-sm font-semibold text-white transition hover:bg-[#00805d] focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             >
               {" "}
               {loading ? (
@@ -194,7 +195,7 @@ export default function SignInForm() {
           <div className="my-5 flex items-center gap-3">
             {" "}
             <div className="h-px flex-1 bg-gray-200" />{" "}
-            <span className="text-xs text-gray-400"> অথবা সাইন ইন করুন </span>{" "}
+            <span className="text-xs text-gray-400"> অথবা  </span>{" "}
             <div className="h-px flex-1 bg-gray-200" />{" "}
           </div>{" "}
           {/* Social Logins */} <SocialLoginButtons />{" "}

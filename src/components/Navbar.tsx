@@ -7,7 +7,8 @@ import { getBengaliDate } from "@/lib/utils";
 import { Category } from "@/types";
 import { IoReturnDownBack } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-
+import logo from './assets/logo-icon.png'
+import Image from "next/image";
 
 export default function Navbar({ categories }: { categories: Category[] }) {
   const pathname = usePathname();
@@ -36,8 +37,13 @@ async function handleSignOut() {
           label="হোম লোড হচ্ছে..."
           className="flex items-center gap-2"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-green-600 text-lg text-white">
-            🛒
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-green-400 px-2 py-1 text-lg text-white">
+          <Image
+          src={logo}
+          alt="image"
+          height={30}
+          width={30}
+          ></Image>
           </span>
           <span className="leading-tight">
             <span className="block font-bold">বাজার দর</span>
